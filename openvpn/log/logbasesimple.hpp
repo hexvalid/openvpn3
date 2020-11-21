@@ -26,7 +26,6 @@
 #include <mutex>
 
 #include <openvpn/log/logbase.hpp>
-#include <openvpn/time/timestr.hpp>
 
 namespace openvpn {
   class LogBaseSimple : public LogBase
@@ -41,10 +40,9 @@ namespace openvpn {
 
     virtual void log(const std::string& str) override
     {
-      const std::string ts = date_time();
       {
 	std::lock_guard<std::mutex> lock(mutex);
-	std::cout << ts << ' ' << str << std::flush;
+	std::cout << str << std::flush;
       }
     }
 

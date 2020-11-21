@@ -267,7 +267,7 @@ public:
 private:
   virtual void event(const ClientAPI::Event& ev) override
   {
-    std::cout << date_time() << " EVENT: " << ev.name;
+    std::cout << "EVENT: " << ev.name;	
     if (!ev.info.empty())
       std::cout << ' ' << ev.info;
     if (ev.fatal)
